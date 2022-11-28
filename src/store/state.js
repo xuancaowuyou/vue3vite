@@ -1,4 +1,8 @@
 let state = {
-    username:'我是username'
+    buttonPermissions: {
+        add: true,
+        edit: false,
+        delete:false
+    }
 }
 export default state

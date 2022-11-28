@@ -1,48 +1,24 @@
 <template>
     <div>
-        我是home
-        {{store.state.username}}
+        <div v-font-size-or-color:[styleField]="fontSizeAndColor">我是home,自定义指令</div>
+        <button @click="changeFontSize">改变字体颜色</button>
+        <button @click="changeColor">改变字体颜色</button>
     </div>
 </template>
-<script>
-import { sale_list } from '../api/index'
-import {useStore} from 'vuex'
-import { ElMessage } from 'element-plus'
-import { ref } from 'vue'
-export default {
-    setup() {
-      console.log(sale_list)
-      // const params = {
-        // pageIndex:1,
-        // pageSize:10,
-        // queryConditions: [],
-        // querySort: ['create_time']
-      // }
-      // sale_list(params).then(res=>{
-        // console.log(res)
-      // })
-        const store = useStore();
-        // console.log(store)
-        return { store}
-    }
+<script setup>
+import {ref} from 'vue'
+
+const styleField = ref('fontSize');
+const fontSizeAndColor = ref('20px');
+const changeFontSize = ()=>{
+    styleField.value='fontSize';
+    fontSizeAndColor.value = '40px'
 }
+const changeColor = ()=>{
+    styleField.value='color';
+    fontSizeAndColor.value='red'
+}
+
 </script>
 <style>
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.text {
-  font-size: 14px;
-}
-
-.item {
-  margin-bottom: 18px;
-}
-
-.box-card {
-  width: 480px;
-}
 </style>

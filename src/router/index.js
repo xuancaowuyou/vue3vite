@@ -15,5 +15,10 @@ const router = createRouter({
         }
     ]
 })
-
+router.beforeEach((to, from) => {
+    //console.log(to)
+    // ...
+    // 返回 false 以取消导航
+    // return false
+  })
 export default router;
